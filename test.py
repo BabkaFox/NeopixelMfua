@@ -44,12 +44,12 @@ if __name__ == '__main__':
     p = 0
     z = 0
 
-    for w in range(width*width):
+    for w in range(width):
         for x in (range(z, width)):
             if (x % 2 == 0):
                 for y in range(width):
                     colorPixel = pixels[x, y]
-                    if (p > 255-width): p = 0
+                    if (p > 255-width*z): p = 0
                     # strip.setPixelColor(p, Color(colorPixel[1], colorPixel[0], colorPixel[2]))
                     strip.setPixelColor(p, Color(gamma[colorPixel[1]], gamma[colorPixel[0]], gamma[colorPixel[2]]))
                     print(x, y, p, colorPixel[0], colorPixel[1], colorPixel[2])
@@ -58,7 +58,7 @@ if __name__ == '__main__':
             else:
                 for y in reversed(range(width)):
                     colorPixel = pixels[x, y]
-                    if (p > 255-width): p = 0
+                    if (p > 255-width*z): p = 0
                     # strip.setPixelColor(p, Color(colorPixel[1], colorPixel[0], colorPixel[2]))
                     strip.setPixelColor(p, Color(gamma[colorPixel[1]], gamma[colorPixel[0]], gamma[colorPixel[2]]))
                     print(x, y, p, colorPixel[0], colorPixel[1], colorPixel[2])
